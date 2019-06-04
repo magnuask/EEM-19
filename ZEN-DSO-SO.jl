@@ -4,11 +4,13 @@ using DataFrames
 using JuMP
 using GLPKMathProgInterface
 using Gurobi
+
 #Set working directory
-cd("C:\\Users\\magnusa\\OneDrive - SINTEF\\Publications\\19_EEM_ZEN-and-DSO\\Modeling\\DataIn")
+cd("inputdir")
 
 #Set true if you want to fix the investments:
 fixbuilding=false
+
 #Model:
 SO = Model(with_optimizer(Gurobi.Optimizer))
 
@@ -159,7 +161,7 @@ DSOData.cnt=0
 systemData.etran=value.(etran)
 
 #Writing data to files:
-cd("C:\\Users\\magnusa\\OneDrive - SINTEF\\Publications\\EEM-19_ZEN-and-DSO\\Modeling\\DataExp")
+cd("outdir")
 if fixbuilding==false
     CSV.write("BuildingExp-SO.csv",building,writeheader=true)
     CSV.write("BuildingTemporalExp-SO.csv",buildingTime,writeheader=true)
