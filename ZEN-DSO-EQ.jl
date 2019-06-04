@@ -5,10 +5,11 @@ using JuMP
 using GLPKMathProgInterface
 using Gurobi
 #Set working directory
-cd("C:\\Users\\magnusa\\OneDrive - SINTEF\\Publications\\EEM-19_ZEN-and-DSO\\Modeling\\DataIn")
+
+cd("input directory directory")
 
 #choose tariffs, at least one must be true
-capacity=false
+capacity=true
 volumetric=true
 
 
@@ -74,7 +75,6 @@ TAX=DSOData.TAX[1,1]
 counter=0
 ConvergenceCriteria=0.000001
 convergence=false
-#initialize tariffs on first iteration
 
 while convergence==false
     global counter+=1
@@ -230,7 +230,7 @@ end
 
 
 #Writing data to files:
-cd("C:\\Users\\magnusa\\OneDrive - SINTEF\\Publications\\EEM-19_ZEN-and-DSO\\Modeling\\DataExp")
+cd("output directory")
 CSV.write("BuildingExp-EQ.csv",building,writeheader=true)
 CSV.write("BuildingTemporalExp-EQ.csv",buildingTime,writeheader=true)
 CSV.write("DSOExp-EQ.csv",DSOData,writeheader=true)
