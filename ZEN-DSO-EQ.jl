@@ -6,7 +6,7 @@ using GLPKMathProgInterface
 using Gurobi
 #Set working directory
 
-cd("input directory directory")
+cd("inputdir")
 
 #choose tariffs, at least one must be true
 capacity=true
